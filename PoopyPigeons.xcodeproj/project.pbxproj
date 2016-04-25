@@ -1,0 +1,540 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		C87C99EE1C9A9A6E00E22C76 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = C87C99ED1C9A9A6E00E22C76 /* main.m */; };
+		C87C99F11C9A9A6E00E22C76 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C87C99F01C9A9A6E00E22C76 /* AppDelegate.m */; };
+		C87C99F41C9A9A6E00E22C76 /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = C87C99F31C9A9A6E00E22C76 /* GameScene.m */; };
+		C87C99F61C9A9A6E00E22C76 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = C87C99F51C9A9A6E00E22C76 /* GameScene.sks */; };
+		C87C99F91C9A9A6E00E22C76 /* GameViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C87C99F81C9A9A6E00E22C76 /* GameViewController.m */; };
+		C87C99FC1C9A9A6E00E22C76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C87C99FA1C9A9A6E00E22C76 /* Main.storyboard */; };
+		C87C99FE1C9A9A6E00E22C76 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C87C99FD1C9A9A6E00E22C76 /* Assets.xcassets */; };
+		C87C9A011C9A9A6E00E22C76 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C87C99FF1C9A9A6E00E22C76 /* LaunchScreen.storyboard */; };
+		C87C9A0C1C9A9A6E00E22C76 /* PoopyPigeonsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C87C9A0B1C9A9A6E00E22C76 /* PoopyPigeonsTests.m */; };
+		C87C9A171C9A9A6E00E22C76 /* PoopyPigeonsUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C87C9A161C9A9A6E00E22C76 /* PoopyPigeonsUITests.m */; };
+		C8A3BCEA1CAD5404006C4780 /* SKScrollingNode.m in Sources */ = {isa = PBXBuildFile; fileRef = C8A3BCE91CAD5404006C4780 /* SKScrollingNode.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		C87C9A081C9A9A6E00E22C76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C87C99E11C9A9A6E00E22C76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C87C99E81C9A9A6E00E22C76;
+			remoteInfo = PoopyPigeons;
+		};
+		C87C9A131C9A9A6E00E22C76 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C87C99E11C9A9A6E00E22C76 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C87C99E81C9A9A6E00E22C76;
+			remoteInfo = PoopyPigeons;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		C87C99E91C9A9A6E00E22C76 /* PoopyPigeons.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PoopyPigeons.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C87C99ED1C9A9A6E00E22C76 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		C87C99EF1C9A9A6E00E22C76 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		C87C99F01C9A9A6E00E22C76 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		C87C99F21C9A9A6E00E22C76 /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		C87C99F31C9A9A6E00E22C76 /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
+		C87C99F51C9A9A6E00E22C76 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
+		C87C99F71C9A9A6E00E22C76 /* GameViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameViewController.h; sourceTree = "<group>"; };
+		C87C99F81C9A9A6E00E22C76 /* GameViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameViewController.m; sourceTree = "<group>"; };
+		C87C99FB1C9A9A6E00E22C76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C87C99FD1C9A9A6E00E22C76 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C87C9A001C9A9A6E00E22C76 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		C87C9A021C9A9A6E00E22C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C87C9A071C9A9A6E00E22C76 /* PoopyPigeonsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoopyPigeonsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C87C9A0B1C9A9A6E00E22C76 /* PoopyPigeonsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoopyPigeonsTests.m; sourceTree = "<group>"; };
+		C87C9A0D1C9A9A6E00E22C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C87C9A121C9A9A6E00E22C76 /* PoopyPigeonsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PoopyPigeonsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		C87C9A161C9A9A6E00E22C76 /* PoopyPigeonsUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PoopyPigeonsUITests.m; sourceTree = "<group>"; };
+		C87C9A181C9A9A6E00E22C76 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C8A3BCE81CAD5404006C4780 /* SKScrollingNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SKScrollingNode.h; sourceTree = "<group>"; };
+		C8A3BCE91CAD5404006C4780 /* SKScrollingNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SKScrollingNode.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		C87C99E61C9A9A6E00E22C76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87C9A041C9A9A6E00E22C76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87C9A0F1C9A9A6E00E22C76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		C87C99E01C9A9A6E00E22C76 = {
+			isa = PBXGroup;
+			children = (
+				C87C99EB1C9A9A6E00E22C76 /* PoopyPigeons */,
+				C87C9A0A1C9A9A6E00E22C76 /* PoopyPigeonsTests */,
+				C87C9A151C9A9A6E00E22C76 /* PoopyPigeonsUITests */,
+				C87C99EA1C9A9A6E00E22C76 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		C87C99EA1C9A9A6E00E22C76 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C87C99E91C9A9A6E00E22C76 /* PoopyPigeons.app */,
+				C87C9A071C9A9A6E00E22C76 /* PoopyPigeonsTests.xctest */,
+				C87C9A121C9A9A6E00E22C76 /* PoopyPigeonsUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C87C99EB1C9A9A6E00E22C76 /* PoopyPigeons */ = {
+			isa = PBXGroup;
+			children = (
+				C87C99EF1C9A9A6E00E22C76 /* AppDelegate.h */,
+				C87C99F01C9A9A6E00E22C76 /* AppDelegate.m */,
+				C87C99F21C9A9A6E00E22C76 /* GameScene.h */,
+				C87C99F31C9A9A6E00E22C76 /* GameScene.m */,
+				C87C99F51C9A9A6E00E22C76 /* GameScene.sks */,
+				C87C99F71C9A9A6E00E22C76 /* GameViewController.h */,
+				C87C99F81C9A9A6E00E22C76 /* GameViewController.m */,
+				C8A3BCE81CAD5404006C4780 /* SKScrollingNode.h */,
+				C8A3BCE91CAD5404006C4780 /* SKScrollingNode.m */,
+				C87C99FA1C9A9A6E00E22C76 /* Main.storyboard */,
+				C87C99FD1C9A9A6E00E22C76 /* Assets.xcassets */,
+				C87C99FF1C9A9A6E00E22C76 /* LaunchScreen.storyboard */,
+				C87C9A021C9A9A6E00E22C76 /* Info.plist */,
+				C87C99EC1C9A9A6E00E22C76 /* Supporting Files */,
+			);
+			path = PoopyPigeons;
+			sourceTree = "<group>";
+		};
+		C87C99EC1C9A9A6E00E22C76 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				C87C99ED1C9A9A6E00E22C76 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C87C9A0A1C9A9A6E00E22C76 /* PoopyPigeonsTests */ = {
+			isa = PBXGroup;
+			children = (
+				C87C9A0B1C9A9A6E00E22C76 /* PoopyPigeonsTests.m */,
+				C87C9A0D1C9A9A6E00E22C76 /* Info.plist */,
+			);
+			path = PoopyPigeonsTests;
+			sourceTree = "<group>";
+		};
+		C87C9A151C9A9A6E00E22C76 /* PoopyPigeonsUITests */ = {
+			isa = PBXGroup;
+			children = (
+				C87C9A161C9A9A6E00E22C76 /* PoopyPigeonsUITests.m */,
+				C87C9A181C9A9A6E00E22C76 /* Info.plist */,
+			);
+			path = PoopyPigeonsUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		C87C99E81C9A9A6E00E22C76 /* PoopyPigeons */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C87C9A1B1C9A9A6E00E22C76 /* Build configuration list for PBXNativeTarget "PoopyPigeons" */;
+			buildPhases = (
+				C87C99E51C9A9A6E00E22C76 /* Sources */,
+				C87C99E61C9A9A6E00E22C76 /* Frameworks */,
+				C87C99E71C9A9A6E00E22C76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PoopyPigeons;
+			productName = PoopyPigeons;
+			productReference = C87C99E91C9A9A6E00E22C76 /* PoopyPigeons.app */;
+			productType = "com.apple.product-type.application";
+		};
+		C87C9A061C9A9A6E00E22C76 /* PoopyPigeonsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C87C9A1E1C9A9A6E00E22C76 /* Build configuration list for PBXNativeTarget "PoopyPigeonsTests" */;
+			buildPhases = (
+				C87C9A031C9A9A6E00E22C76 /* Sources */,
+				C87C9A041C9A9A6E00E22C76 /* Frameworks */,
+				C87C9A051C9A9A6E00E22C76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C87C9A091C9A9A6E00E22C76 /* PBXTargetDependency */,
+			);
+			name = PoopyPigeonsTests;
+			productName = PoopyPigeonsTests;
+			productReference = C87C9A071C9A9A6E00E22C76 /* PoopyPigeonsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		C87C9A111C9A9A6E00E22C76 /* PoopyPigeonsUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = C87C9A211C9A9A6E00E22C76 /* Build configuration list for PBXNativeTarget "PoopyPigeonsUITests" */;
+			buildPhases = (
+				C87C9A0E1C9A9A6E00E22C76 /* Sources */,
+				C87C9A0F1C9A9A6E00E22C76 /* Frameworks */,
+				C87C9A101C9A9A6E00E22C76 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				C87C9A141C9A9A6E00E22C76 /* PBXTargetDependency */,
+			);
+			name = PoopyPigeonsUITests;
+			productName = PoopyPigeonsUITests;
+			productReference = C87C9A121C9A9A6E00E22C76 /* PoopyPigeonsUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		C87C99E11C9A9A6E00E22C76 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0720;
+				ORGANIZATIONNAME = "Bryan Carter";
+				TargetAttributes = {
+					C87C99E81C9A9A6E00E22C76 = {
+						CreatedOnToolsVersion = 7.2.1;
+					};
+					C87C9A061C9A9A6E00E22C76 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = C87C99E81C9A9A6E00E22C76;
+					};
+					C87C9A111C9A9A6E00E22C76 = {
+						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = C87C99E81C9A9A6E00E22C76;
+					};
+				};
+			};
+			buildConfigurationList = C87C99E41C9A9A6E00E22C76 /* Build configuration list for PBXProject "PoopyPigeons" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C87C99E01C9A9A6E00E22C76;
+			productRefGroup = C87C99EA1C9A9A6E00E22C76 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				C87C99E81C9A9A6E00E22C76 /* PoopyPigeons */,
+				C87C9A061C9A9A6E00E22C76 /* PoopyPigeonsTests */,
+				C87C9A111C9A9A6E00E22C76 /* PoopyPigeonsUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		C87C99E71C9A9A6E00E22C76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C87C99F61C9A9A6E00E22C76 /* GameScene.sks in Resources */,
+				C87C9A011C9A9A6E00E22C76 /* LaunchScreen.storyboard in Resources */,
+				C87C99FE1C9A9A6E00E22C76 /* Assets.xcassets in Resources */,
+				C87C99FC1C9A9A6E00E22C76 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87C9A051C9A9A6E00E22C76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87C9A101C9A9A6E00E22C76 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		C87C99E51C9A9A6E00E22C76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C87C99F91C9A9A6E00E22C76 /* GameViewController.m in Sources */,
+				C8A3BCEA1CAD5404006C4780 /* SKScrollingNode.m in Sources */,
+				C87C99F11C9A9A6E00E22C76 /* AppDelegate.m in Sources */,
+				C87C99F41C9A9A6E00E22C76 /* GameScene.m in Sources */,
+				C87C99EE1C9A9A6E00E22C76 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87C9A031C9A9A6E00E22C76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C87C9A0C1C9A9A6E00E22C76 /* PoopyPigeonsTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C87C9A0E1C9A9A6E00E22C76 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C87C9A171C9A9A6E00E22C76 /* PoopyPigeonsUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		C87C9A091C9A9A6E00E22C76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C87C99E81C9A9A6E00E22C76 /* PoopyPigeons */;
+			targetProxy = C87C9A081C9A9A6E00E22C76 /* PBXContainerItemProxy */;
+		};
+		C87C9A141C9A9A6E00E22C76 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = C87C99E81C9A9A6E00E22C76 /* PoopyPigeons */;
+			targetProxy = C87C9A131C9A9A6E00E22C76 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		C87C99FA1C9A9A6E00E22C76 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C87C99FB1C9A9A6E00E22C76 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		C87C99FF1C9A9A6E00E22C76 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				C87C9A001C9A9A6E00E22C76 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		C87C9A191C9A9A6E00E22C76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		C87C9A1A1C9A9A6E00E22C76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		C87C9A1C1C9A9A6E00E22C76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PoopyPigeons/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlight.int.PoopyPigeons;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		C87C9A1D1C9A9A6E00E22C76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = PoopyPigeons/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlight.int.PoopyPigeons;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		C87C9A1F1C9A9A6E00E22C76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PoopyPigeonsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlight.int.PoopyPigeonsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoopyPigeons.app/PoopyPigeons";
+			};
+			name = Debug;
+		};
+		C87C9A201C9A9A6E00E22C76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = PoopyPigeonsTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlight.int.PoopyPigeonsTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PoopyPigeons.app/PoopyPigeons";
+			};
+			name = Release;
+		};
+		C87C9A221C9A9A6E00E22C76 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				INFOPLIST_FILE = PoopyPigeonsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlight.int.PoopyPigeonsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PoopyPigeons;
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		C87C9A231C9A9A6E00E22C76 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = PoopyPigeonsUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.charlight.int.PoopyPigeonsUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = PoopyPigeons;
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		C87C99E41C9A9A6E00E22C76 /* Build configuration list for PBXProject "PoopyPigeons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C87C9A191C9A9A6E00E22C76 /* Debug */,
+				C87C9A1A1C9A9A6E00E22C76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C87C9A1B1C9A9A6E00E22C76 /* Build configuration list for PBXNativeTarget "PoopyPigeons" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C87C9A1C1C9A9A6E00E22C76 /* Debug */,
+				C87C9A1D1C9A9A6E00E22C76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C87C9A1E1C9A9A6E00E22C76 /* Build configuration list for PBXNativeTarget "PoopyPigeonsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C87C9A1F1C9A9A6E00E22C76 /* Debug */,
+				C87C9A201C9A9A6E00E22C76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		C87C9A211C9A9A6E00E22C76 /* Build configuration list for PBXNativeTarget "PoopyPigeonsUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C87C9A221C9A9A6E00E22C76 /* Debug */,
+				C87C9A231C9A9A6E00E22C76 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = C87C99E11C9A9A6E00E22C76 /* Project object */;
+}
