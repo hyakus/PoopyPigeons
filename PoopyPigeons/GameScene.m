@@ -21,12 +21,11 @@ static const uint32_t floorBitMask    =  0x1 << 2;
 -(void)didMoveToView:(SKView *)view
 {
     /* Setup your scene here */
-
-    [self createCannonInitShot];
-    
     [self createBackground];
-    
+
     [self createGround];
+    
+    [self createCannonInitShot];
     
     self.physicsWorld.contactDelegate = self;
 }
@@ -46,7 +45,9 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     cannon.physicsBody.categoryBitMask = shotBitMask;
     
     cannon.position = CGPointMake(self.frame.size.width/6,
-                                  self.frame.size.height/2 - 140);
+                                  self.frame.size.height/2);
+    
+    cannon.zPosition = 1.0;
     
     [self addChild:cannon];
 }
@@ -59,7 +60,7 @@ static const uint32_t floorBitMask    =  0x1 << 2;
                                                    withHeight:self.frame.size.height];
     [background setScrollingSpeed:130.0];
     [background setAnchorPoint:CGPointZero];
-    [background setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
+//    [background setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
     background.physicsBody.categoryBitMask = backBitMask;
     background.physicsBody.contactTestBitMask = shotBitMask;
     [self addChild:background];
@@ -75,6 +76,8 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     [floor setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:floor.frame]];
     floor.physicsBody.categoryBitMask = floorBitMask;
     floor.physicsBody.contactTestBitMask = shotBitMask;
+    floor.zPosition = 1.0;
+    
     [self addChild:floor];
 }
 
@@ -90,6 +93,7 @@ static const uint32_t floorBitMask    =  0x1 << 2;
         
         //Check if there is already a projectile in the scene
         if (!hasProjectile
+            && cannon.parent
             && CGRectContainsPoint(cannon.frame,location))
         {
         
@@ -98,15 +102,31 @@ static const uint32_t floorBitMask    =  0x1 << 2;
             [self addProjectile];
             
             //Create a Vector to use as a 2D force value
-            CGVector projectileForce = CGVectorMake(800.0f, 800.0f);
+            CGVector projectileForce = CGVectorMake(500.0f, 500.0f);
+            CGVector cannonForce = CGVectorMake(-1000.0f, -800.0f);
             
+            //Apply an impulse to the projectile, overtaking gravity and friction temporarily
+            [shot.physicsBody applyImpulse:projectileForce
+                                   atPoint:CGPointMake(cannon.frame.origin.x+cannon.frame.size.width,
+                                                       self.view.frame.size.height)];
             
-                    //Apply an impulse to the projectile, overtaking gravity and friction temporarily
-                    [shot.physicsBody applyImpulse:projectileForce
-                                           atPoint:CGPointMake(cannon.frame.origin.x+cannon.frame.size.width,self.view.frame.size.height)];
+            cannon.physicsBody =  [SKPhysicsBody bodyWithRectangleOfSize:cannon.size];
+            
+            [cannon.physicsBody applyImpulse:cannonForce
+                                     atPoint:CGPointMake(cannon.frame.origin.x+cannon.frame.size.width,
+                                                         cannon.frame.origin.y+cannon.frame.size.height/2)];
             
         }
-        
+        else if(hasProjectile)
+        {
+            
+            NSLog(@"HITHITHIT");
+            CGVector projectileForce = CGVectorMake(400.0f, 800.0f);
+            
+            [shot.physicsBody applyImpulse:projectileForce
+                                   atPoint:CGPointMake(self.view.frame.origin.x,
+                                                       self.view.frame.size.height)];
+        }
         
     }
 }
@@ -180,7 +200,22 @@ static const uint32_t floorBitMask    =  0x1 << 2;
 
 - (void) didBeginContact:(SKPhysicsContact *)contact
 {
-    hasProjectile = NO;
+    if((contact.bodyA == shot.physicsBody
+        || contact.bodyB == shot.physicsBody)
+       && (contact.bodyA == floor.physicsBody
+            || contact.bodyB == floor.physicsBody)
+       && !(contact.bodyA == cannon.physicsBody
+           || contact.bodyB == cannon.physicsBody))
+    {
+        hasProjectile = NO;
+    }
+    if((contact.bodyA == cannon.physicsBody
+       || contact.bodyB == cannon.physicsBody)
+       && (contact.bodyA == background.physicsBody
+           || contact.bodyB == background.physicsBody))
+    {
+        [cannon removeFromParent];
+    }
 }
 
 @end
