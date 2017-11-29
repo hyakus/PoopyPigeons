@@ -51,7 +51,7 @@
         [realNode addChild:child];
         total+=child.size.width;
     }
-    
+
     return realNode;
 }
 
@@ -66,6 +66,7 @@
              float delta = child.position.x+child.size.width;
              child.position = CGPointMake(child.size.width*(self.children.count-1)+delta, child.position.y);
          }
+         
      }];
 
 }

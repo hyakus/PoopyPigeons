@@ -15,8 +15,11 @@
     
     SKSpriteNode* shot;
     SKSpriteNode *cannon;
+    SKSpriteNode *cannonBase;
     SKScrollingNode *background;
     SKScrollingNode *floor;
+    
+    SKCameraNode* camera;
     
     BOOL hasProjectile;
     

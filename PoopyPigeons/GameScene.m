@@ -18,6 +18,8 @@ static const uint32_t shotBitMask =  0x1 << 1;
 static const uint32_t floorBitMask    =  0x1 << 2;
 
 
+
+
 -(void)didMoveToView:(SKView *)view
 {
     /* Setup your scene here */
@@ -27,29 +29,51 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     
     [self createCannonInitShot];
     
+    camera = [[SKCameraNode alloc] init];
+    
+    self.camera = camera;
+    
+    camera.position = CGPointMake(self.frame.size.width/2, self.frame.size.height/2);
+    
     self.physicsWorld.contactDelegate = self;
+    
+    self.physicsWorld.gravity = CGVectorMake(self.physicsWorld.gravity.dx, self.physicsWorld.gravity.dy/4);
 }
 
 
 - (void) createCannonInitShot
 {
-    cannon = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
+    cannon = [SKSpriteNode spriteNodeWithImageNamed:@"cannon-body"];
     
     shot = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     
-    cannon.xScale = 0.5;
-    cannon.yScale = 0.5;
+    cannon.xScale = 2;
+    cannon.yScale = 2;
     
     cannon.physicsBody =  [SKPhysicsBody bodyWithCircleOfRadius:cannon.size.width/2];
     
     cannon.physicsBody.categoryBitMask = shotBitMask;
+    
+    cannon.physicsBody.density = 5;
     
     cannon.position = CGPointMake(self.frame.size.width/6,
                                   self.frame.size.height/2);
     
     cannon.zPosition = 1.0;
     
+    cannonBase = [SKSpriteNode spriteNodeWithImageNamed:@"cannon-base"];
+    
+    cannonBase.xScale = 0.7;
+    cannonBase.yScale = 0.7;
+    
+    cannonBase.position = CGPointMake(self.frame.size.width/6,
+                                      self.frame.size.height/6);
+    
+    cannonBase.zPosition = 2.0;
+    
     [self addChild:cannon];
+    
+    [self addChild:cannonBase];
 }
 
 
@@ -58,8 +82,10 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     background = [SKScrollingNode scrollingNodeWithImageNamed:@"Trail"
                                              inContainerWidth:self.frame.size.width
                                                    withHeight:self.frame.size.height];
-    [background setScrollingSpeed:130.0];
+    [background setScrollingSpeed:20.0];
     [background setAnchorPoint:CGPointZero];
+    
+    background.zPosition = -1.0;
 //    [background setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:self.frame]];
     background.physicsBody.categoryBitMask = backBitMask;
     background.physicsBody.contactTestBitMask = shotBitMask;
@@ -70,13 +96,13 @@ static const uint32_t floorBitMask    =  0x1 << 2;
 {
     floor = [SKScrollingNode scrollingNodeWithImageNamed:@"floor"
                                         inContainerWidth:self.frame.size.width];
-    [floor setScrollingSpeed:25.0];
+    [floor setScrollingSpeed:20.0];
     [floor setAnchorPoint:CGPointZero];
     [floor setName:@"floor"];
     [floor setPhysicsBody:[SKPhysicsBody bodyWithEdgeLoopFromRect:floor.frame]];
     floor.physicsBody.categoryBitMask = floorBitMask;
     floor.physicsBody.contactTestBitMask = shotBitMask;
-    floor.zPosition = 1.0;
+    floor.zPosition = -1.0;
     
     [self addChild:floor];
 }
@@ -86,6 +112,7 @@ static const uint32_t floorBitMask    =  0x1 << 2;
 {
     /* Called when a touch begins */
     
+    NSLog(@"HITHITHIT");
     for (UITouch *touch in touches)
     {
         
@@ -96,18 +123,19 @@ static const uint32_t floorBitMask    =  0x1 << 2;
             && cannon.parent
             && CGRectContainsPoint(cannon.frame,location))
         {
-        
             //If not, add it
             hasProjectile = YES;
             [self addProjectile];
+         
+            [cannonBase removeFromParent];
             
             //Create a Vector to use as a 2D force value
-            CGVector projectileForce = CGVectorMake(500.0f, 500.0f);
-            CGVector cannonForce = CGVectorMake(-1000.0f, -800.0f);
+            CGVector projectileForce = CGVectorMake(20.0, 100.0f);
+            CGVector cannonForce = CGVectorMake(-8000.0, 0.0f);
             
             //Apply an impulse to the projectile, overtaking gravity and friction temporarily
             [shot.physicsBody applyImpulse:projectileForce
-                                   atPoint:CGPointMake(cannon.frame.origin.x+cannon.frame.size.width,
+                                   atPoint:CGPointMake(cannon.frame.origin.x,
                                                        self.view.frame.size.height)];
             
             cannon.physicsBody =  [SKPhysicsBody bodyWithRectangleOfSize:cannon.size];
@@ -120,12 +148,11 @@ static const uint32_t floorBitMask    =  0x1 << 2;
         else if(hasProjectile)
         {
             
-            NSLog(@"HITHITHIT");
-            CGVector projectileForce = CGVectorMake(400.0f, 800.0f);
+            CGVector projectileForce = CGVectorMake(0.001, (300.0f - shot.physicsBody.velocity.dy));
             
             [shot.physicsBody applyImpulse:projectileForce
-                                   atPoint:CGPointMake(self.view.frame.origin.x,
-                                                       self.view.frame.size.height)];
+                                   atPoint:CGPointMake(cannon.position.x,
+                                                       cannon.position.y)];
         }
         
     }
@@ -137,16 +164,34 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     shot = [SKSpriteNode spriteNodeWithImageNamed:@"Spaceship"];
     shot.xScale = 0.2;
     shot.yScale = 0.2;
-    shot.position = CGPointMake(cannon.frame.origin.x+cannon.frame.size.width, cannon.position.y);
-    shot.zPosition = 20;
+    
+    
+    // complex math regarding position -r*sin(a), r*cos(a)
+    // r is the radius of the physics body of the cannon
+    // a is the angle of the cannon (defined by cannon.zRotation)
+    
+    CGFloat r = cannon.frame.size.width-(cannon.frame.size.width/2);
+    
+    CGFloat a = cannon.zRotation;
+    
+    CGPoint pos = CGPointMake(((-r)*sinf(a)), (r*cosf(a)));
+//    CGPoint pos = CGPointMake((r*cosf(a)), (r*sinf(a)));
+    
+    shot.position = CGPointMake(cannon.frame.size.width+pos.x+5,cannon.frame.size.height+pos.y+5);
+    
+//    shot.position = CGPointMake(cannon.frame.origin.x+cannon.frame.size.width, cannon.position.y);
+    shot.zPosition = 0.0;
     shot.name = @"Projectile";
+    
+    shot.zRotation = cannon.zRotation;
+    
     
     //Assign a physics body to the sprite
     shot.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:shot.size.width/2];
     
     //Assign properties to the physics body (these all exist and have default values upon the creation of the body)
     shot.physicsBody.restitution = 0.5;
-    shot.physicsBody.density = 5;
+    shot.physicsBody.density = 4;
     shot.physicsBody.friction = 1;
     shot.physicsBody.dynamic = YES;
     shot.physicsBody.allowsRotation = YES;
@@ -192,6 +237,7 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     if(hasProjectile)
     {
         [background update:currentTime];
+//        camera.position = CGPointMake(shot.position.x, self.frame.size.height/2);
     }
     
     
