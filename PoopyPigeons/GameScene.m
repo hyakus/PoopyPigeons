@@ -74,6 +74,9 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     [self addChild:cannon];
     
     [self addChild:cannonBase];
+    
+//    cannon.alpha = 0.5;
+//    cannonBase.alpha = 0.5;
 }
 
 
@@ -90,6 +93,8 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     background.physicsBody.categoryBitMask = backBitMask;
     background.physicsBody.contactTestBitMask = shotBitMask;
     [self addChild:background];
+    
+//    background.alpha = 0.5;
 }
 
 - (void) createGround
@@ -153,9 +158,41 @@ static const uint32_t floorBitMask    =  0x1 << 2;
             [shot.physicsBody applyImpulse:projectileForce
                                    atPoint:CGPointMake(cannon.position.x,
                                                        cannon.position.y)];
+            
+            
+            [self firePoop];
         }
         
     }
+}
+
+-(void) firePoop
+{
+    //Create a sprite based on our image, give it a position and name
+    SKSpriteNode * poop = [SKSpriteNode spriteNodeWithImageNamed:@"poop"];
+    poop.xScale = 0.2;
+    poop.yScale = 0.2;
+    
+    
+    poop.position = CGPointMake(shot.position.x,
+                                shot.frame.origin.y);
+    
+    
+    //Assign a physics body to the sprite
+    poop.physicsBody = [SKPhysicsBody bodyWithCircleOfRadius:shot.size.width/2];
+    
+    //Assign properties to the physics body (these all exist and have default values upon the creation of the body)
+    poop.physicsBody.restitution = 0.5;
+    poop.physicsBody.density = 4;
+    poop.physicsBody.friction = 1;
+    poop.physicsBody.dynamic = YES;
+    poop.physicsBody.allowsRotation = YES;
+    poop.physicsBody.categoryBitMask = otherMask;
+    poop.physicsBody.contactTestBitMask = objectiveMask;
+    poop.physicsBody.usesPreciseCollisionDetection = YES;
+    
+    //Add the sprite to the scene, with the physics body attached
+    [self addChild:poop];
 }
 
 -(void) addProjectile
@@ -170,14 +207,15 @@ static const uint32_t floorBitMask    =  0x1 << 2;
     // r is the radius of the physics body of the cannon
     // a is the angle of the cannon (defined by cannon.zRotation)
     
-    CGFloat r = cannon.frame.size.width-(cannon.frame.size.width/2);
+    CGFloat r = cannon.frame.size.width - (cannon.frame.size.width/2);
     
     CGFloat a = cannon.zRotation;
     
     CGPoint pos = CGPointMake(((-r)*sinf(a)), (r*cosf(a)));
 //    CGPoint pos = CGPointMake((r*cosf(a)), (r*sinf(a)));
     
-    shot.position = CGPointMake(cannon.frame.size.width+pos.x+5,cannon.frame.size.height+pos.y+5);
+    shot.position = CGPointMake(cannon.frame.size.width + pos.x + 40,
+                                cannon.frame.size.height + pos.y + 40);
     
 //    shot.position = CGPointMake(cannon.frame.origin.x+cannon.frame.size.width, cannon.position.y);
     shot.zPosition = 0.0;
